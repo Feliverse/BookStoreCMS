@@ -9,7 +9,7 @@ const categorySlice = createSlice({
 
   reducers: {
     underConstruction: (state) => ({
-      ...state,
+      state,
       status: 'Under construction',
     }),
   },
