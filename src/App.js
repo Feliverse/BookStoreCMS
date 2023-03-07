@@ -2,10 +2,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Nav from './components/Nav';
 import Categories from './components/Categories';
 import Books from './components/Books';
-import { useSelector } from 'react-redux';
 
 function App() {
-  useSelector
   return (
     <div className="App">
       <BrowserRouter>

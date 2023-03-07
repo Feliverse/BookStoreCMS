@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import crudReducer from '../features/crud/crudSlice';
+import booksReducer from './books/booksSlice';
+import categoriesReducer from './categories/categoriesSlice';
 
-const store = configureStore({
-  crud: crudReducer,
+export default configureStore({
+  reducer: {
+    books: booksReducer,
+    categories: categoriesReducer,
+  },
 });
-
-export default store;
