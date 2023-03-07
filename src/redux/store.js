@@ -1,7 +1,8 @@
-import { configureStore} from "@reduxjs/toolkit";
+import { configureStore } from '@reduxjs/toolkit';
+import crudReducer from '../features/crud/crudSlice';
 
-export const store = configureStore({
-    reducer: {
-        
-    }
-})
+const store = configureStore({
+  crud: crudReducer,
+});
+
+export default store;

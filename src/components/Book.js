@@ -1,7 +1,5 @@
 const Book = (book) => {
-  const {
-    type, title, author, chapter,
-  } = book;
+  const { type, title, author, chapter } = book;
   return (
     <div className="theBook">
       <h3 className="bookType">{type}</h3>
