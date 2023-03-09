@@ -7,7 +7,7 @@ const Book = (book) => {
     type, title, author, chapter, id,
   } = book;
   const handleDelete = (id) => {
-    dispatch(removeBook({ id }));
+    dispatch(removeBook(id));
   };
   return (
     <div className="theBook">
@@ -20,7 +20,6 @@ const Book = (book) => {
           <button
             className="option"
             onClick={() => { handleDelete(id); }}
-            onKeyDown={() => { handleDelete(id); }}
             type="button"
           >
             Remove

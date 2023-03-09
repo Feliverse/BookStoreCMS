@@ -3,17 +3,16 @@ import Book from './Book';
 import Form from './Form';
 
 function Books() {
-  const bookList = useSelector((state) => state.books.books);
+  const { books } = useSelector((store) => store.books);
   return (
     <section className="forBooks">
-      {bookList.map((book) => (
+      {books.map((book) => (
         <Book
           key={book.item_id}
-          type={book.type}
+          id={book.item_id}
           title={book.title}
           author={book.author}
-          chapter={book.chapter}
-          item_id={book.item_id}
+          category={book.category}
         />
       ))}
       <Form />
