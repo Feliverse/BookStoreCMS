@@ -1,11 +1,11 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Nav from './components/Nav';
-import Categories from './components/Categories';
 import Books from './components/Books';
+import Categories from './components/Categories';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <BrowserRouter>
         <Nav />
         <Routes>
