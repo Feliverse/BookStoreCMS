@@ -1,43 +1,38 @@
-import { useState } from 'react';
+import React, { useRef } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
-import { addBook } from '../redux/books/bookSlice';
+import { addNewBook } from '../redux/books/bookSlice';
 
-function Form() {
+const Form = () => {
   const dispatch = useDispatch();
-  const [book, setbook] = useState({
-    title: '', item_id: '', author: '', category: 'fiction',
-  });
-  const handlesubmit = (e) => {
-    e.preventDefault();
-    dispatch(addBook({ next: book }));
-    setbook({ title: '', item_id: '', author: '' });
+
+  const titleInput = useRef();
+  const authorInput = useRef();
+
+  const formHandler = (event) => {
+    event.preventDefault();
+    const book = {
+      item_id: uuidv4(),
+      title: titleInput.current?.value,
+      author: authorInput.current?.value,
+      category: 'Fiction',
+    };
+    dispatch(addNewBook(book));
+    titleInput.current.value = '';
+    authorInput.current.value = '';
   };
 
   return (
-    <div>
-      <form className="addNew" onSubmit={handlesubmit}>
-        <h2 className="title">ADD NEW BOOK</h2>
-        <input
-          type="text"
-          value={book.title}
-          placeholder="Book title"
-          onChange={(e) => setbook({
-            ...book,
-            title: e.target.value,
-            item_id: `item${Math.floor(Math.random() * 1000)}`,
-          })}
-        />
-        <input
-          type="text"
-          id="inputAuthor"
-          value={book.author}
-          placeholder="Book author"
-          onChange={(e) => setbook({ ...book, author: e.target.value })}
-        />
-        <button type="submit">ADD BOOK</button>
+    <div className="form-container">
+      <h2 className="header-title">ADD NEW BOOK</h2>
+      <form onSubmit={formHandler}>
+        <input ref={titleInput} type="text" placeholder="Book title" className="title" />
+        <input ref={authorInput} type="text" placeholder="Book Author" className="author" />
+        <button type="submit" className="btn-add">Add Book</button>
       </form>
     </div>
+
   );
-}
+};
 
 export default Form;

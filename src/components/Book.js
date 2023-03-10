@@ -1,39 +1,50 @@
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { removeBook } from '../redux/books/bookSlice';
 
-const Book = (book) => {
-  const dispatch = useDispatch();
-  const {
-    type, title, author, chapter, id,
-  } = book;
-  const handleDelete = (id) => {
-    dispatch(removeBook(id));
-  };
+const Book = ({
+  id, title, author, category,
+}) => {
+  const dispath = useDispatch();
   return (
-    <div className="theBook">
-      <h3 className="bookType">{type}</h3>
-      <h1 className="bookTitle">{title}</h1>
-      <h2 className="bookAuthor">{author}</h2>
-      <ul className="bookOptions">
-        <li className="option">Comments</li>
-        <li>
-          <button
-            className="option"
-            onClick={() => { handleDelete(id); }}
-            type="button"
-          >
-            Remove
-          </button>
-        </li>
-        <li className="option">Edit</li>
-      </ul>
-      <div className="progress">
-        <p className="current">CURRENT CHAPTER</p>
-        <h3 className="chapterNo">{chapter}</h3>
-        <button type="submit">UPDATE PROGRESS</button>
+    <div className="book-container">
+      <div className="content">
+        <p className="category">{category}</p>
+        <h2 className="title">{title}</h2>
+        <p className="author">{author}</p>
+        <div className="buttons">
+          <button type="button">Comments</button>
+          <button type="button" onClick={() => dispath(removeBook(id))}>Remove</button>
+          <button type="button">Edit</button>
+        </div>
+      </div>
+      <div className="status-container">
+        <div className="progress">
+          <div className="circle-progress" style={{ width: 70, height: 70 }}>
+            <CircularProgressbar value={72} />
+          </div>
+          <div className="status">
+            <span className="percentage">72%</span>
+            <span className="completed">Completed</span>
+          </div>
+        </div>
+        <div>
+          <h3 className="chapter-header">CURRENT CHAPTER</h3>
+          <h4 className="chapter">Chapter 17</h4>
+          <button type="button" className="btn-update">UPDATE PROGRESS</button>
+        </div>
       </div>
     </div>
   );
+};
+
+Book.propTypes = {
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
 };
 
 export default Book;
