@@ -18,6 +18,8 @@ const Form = () => {
       category: 'Fiction',
     };
     dispatch(addNewBook(book));
+    titleInput.current.value = '';
+    authorInput.current.value = '';
   };
 
   return (
