@@ -17,7 +17,6 @@ const getBooksArr = (jsonbooks) => {
   }));
   return books;
 };
-
 export const fetchBooks = createAsyncThunk(
   'books/fetchBooks',
   async () => {
@@ -27,11 +26,22 @@ export const fetchBooks = createAsyncThunk(
   },
 );
 
+export const addNewBook = createAsyncThunk(
+  'books/addNewBook',
+  async (obj) => {
+    try {
+      await axios.post(url, obj);
+      return obj;
+    } catch (error) {
+      return error;
+    }
+  },
+);
+
 const booksSlice = createSlice({
   name: 'books',
   initialState,
-  reducers: {
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchBooks.pending, (state) => ({
@@ -45,9 +55,14 @@ const booksSlice = createSlice({
       }))
       .addCase(fetchBooks.rejected, () => {
         console.log('rejected');
-      });
+      })
+      .addCase(addNewBook.fulfilled, (state, action) => ({
+        ...state,
+        books: [...state.books, action.payload],
+        isLoading: false,
+      }));
   },
 });
 
-export const { addBook, removeBook } = booksSlice.actions;
+export const { addBook } = booksSlice.actions;
 export default booksSlice.reducer;
