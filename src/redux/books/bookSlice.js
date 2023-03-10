@@ -54,9 +54,7 @@ export const removeBook = createAsyncThunk(
 const booksSlice = createSlice({
   name: 'books',
   initialState,
-  reducers: {
-
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchBooks.pending, (state) => ({
