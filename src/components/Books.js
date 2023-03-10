@@ -1,20 +1,11 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Book from './Book';
 import Form from './Form';
-import { fetchBooks } from '../redux/books/bookSlice';
 
 function Books() {
-  const { books, isLoading } = useSelector((store) => store.books);
-  const dispatch = useDispatch();
-
-  useEffect(() => { dispatch(fetchBooks()); }, []);
-
+  const { books } = useSelector((store) => store.books);
   return (
     <section className="forBooks">
-      <div>
-        {isLoading && <h1 style={{ textAlign: 'center', color: 'blue' }}>Loading...</h1>}
-      </div>
       {books.map((book) => (
         <Book
           key={book.item_id}
