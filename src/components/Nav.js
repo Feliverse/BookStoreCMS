@@ -9,7 +9,6 @@ function Nav() {
       <nav className="options">
         <Link to="/"> BOOKS </Link>
         <Link to="Categories"> CATEGORIES </Link>
-        
       </nav>
     </div>
   );
