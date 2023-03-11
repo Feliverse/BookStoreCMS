@@ -7,8 +7,9 @@ function Nav() {
         Bookstore CMS
       </h1>
       <nav className="options">
-        <Link to="/"> [BOOKS] </Link>
-        <Link to="Categories"> [CATEGORIES] </Link>
+        <Link to="/"> BOOKS </Link>
+        <Link to="Categories"> CATEGORIES </Link>
+        
       </nav>
     </div>
   );
