@@ -26,8 +26,8 @@ const Form = () => {
     <div className="form-container">
       <h2 className="header-title">ADD NEW BOOK</h2>
       <form onSubmit={formHandler}>
-        <input ref={titleInput} type="text" placeholder="Book title" className="title" />
-        <input ref={authorInput} type="text" placeholder="Book Author" className="author" />
+        <input ref={titleInput} type="text" placeholder="Book title" className="input input-title" />
+        <input ref={authorInput} type="text" placeholder="Book Author" className="input input-author" />
         <button type="submit" className="btn-add">Add Book</button>
       </form>
     </div>

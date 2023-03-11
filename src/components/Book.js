@@ -15,7 +15,7 @@ const Book = ({
         <h2 className="title">{title}</h2>
         <p className="author">{author}</p>
         <div className="buttons">
-          <button type="button">Comments</button>
+          <button type="button" className="comments">Comments</button>
           <button type="button" onClick={() => dispath(removeBook(id))}>Remove</button>
           <button type="button">Edit</button>
         </div>
@@ -30,7 +30,7 @@ const Book = ({
             <span className="completed">Completed</span>
           </div>
         </div>
-        <div>
+        <div className="update-container">
           <h3 className="chapter-header">CURRENT CHAPTER</h3>
           <h4 className="chapter">Chapter 17</h4>
           <button type="button" className="btn-update">UPDATE PROGRESS</button>
