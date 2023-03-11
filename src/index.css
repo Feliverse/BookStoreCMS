@@ -48,9 +48,7 @@
   align-items: center;
   border-radius: 50%;
   color: #0090ff;
-  
   flex-shrink: 0;
-  
 }
 
 .theHeading {
@@ -243,7 +241,7 @@ form {
 
 .cate p,
 .cat {
-  display:flex;
+  display: flex;
   justify-content: center;
   font-size: larger;
   padding-top: 5vh;
