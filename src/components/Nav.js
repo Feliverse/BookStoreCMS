@@ -1,4 +1,6 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { FaUser } from 'react-icons/fa';
+import '../index.css';
 
 function Nav() {
   return (
@@ -7,9 +9,10 @@ function Nav() {
         Bookstore CMS
       </h1>
       <nav className="options">
-        <Link to="/"> [BOOKS] </Link>
-        <Link to="Categories"> [CATEGORIES] </Link>
+        <NavLink to="/"> BOOKS </NavLink>
+        <NavLink to="Categories"> CATEGORIES </NavLink>
       </nav>
+      <div className="navUser"><FaUser /></div>
     </div>
   );
 }
