@@ -125,7 +125,7 @@ Clone this repository to your desired folder:
 
  ```sh
   cd my-folder
-  git clone https://github.com/Feliverse/bookstore.git
+  git clone https://github.com/Feliverse/BookStoreCMS.git
 ```
 --->
 
