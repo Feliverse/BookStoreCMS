@@ -208,7 +208,6 @@ What is the license policy for this project?
 This project is MIT licensed, please refer to the License.md file for more information.
 How to setup webpack for this project
 
-To get started with webpack setup, please refer to the following webpack tutorial.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
